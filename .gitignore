@@ -92,6 +92,7 @@ backend//public/uploads
 # Recommended template: Node.gitignore
 
 frontend/dist/
+frontend/node_modules/*
 frontend/npm-debug.log
 frontend/yarn-error.log
 
