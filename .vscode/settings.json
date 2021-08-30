@@ -1,0 +1,14 @@
+
+{
+    // 現在の行を強調表示する
+    "editor.renderLineHighlight": "all",
+    // 空白文字を表示する。
+    "editor.renderWhitespace": "all",
+    // スペース2個インデント
+    "editor.tabSize": 2,
+     "extensions.ignoreRecommendations": false,
+    // ファイル保存時に最新の行を末尾に挿入する
+    "files.insertFinalNewline": true,
+    // ファイル保存時に不要なスペースを削除する
+    "files.trimTrailingWhitespace": true,
+}
