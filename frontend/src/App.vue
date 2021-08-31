@@ -1,19 +1,16 @@
 <template>
   <div id="app">
-    <HelloWorld />
-    <Prop propsMessage="props message"/>
+    <Calendar />
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
-import Prop from "./components/Prop.vue";
+import Calendar from './components/Calendar.vue';
 
 export default {
-  name: "App",
+  name: 'App',
   components: {
-    HelloWorld,
-    Prop,
+    Calendar,
   },
 };
 </script>
