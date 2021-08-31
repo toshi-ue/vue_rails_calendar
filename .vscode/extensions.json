@@ -3,6 +3,8 @@
     "jcbuisson.vue",
     "rebornix.ruby",
     "ms-ceintl.vscode-language-pack-ja",
-    "esbenp.prettier-vscode"
+    "esbenp.prettier-vscode",
+    "wix.vscode-import-cost",
+    "ionutvmi.path-autocomplete"
   ]
 }
