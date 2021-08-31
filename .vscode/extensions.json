@@ -2,6 +2,7 @@
   "recommendations": [
     "jcbuisson.vue",
     "rebornix.ruby",
-    "ms-ceintl.vscode-language-pack-ja"
+    "ms-ceintl.vscode-language-pack-ja",
+    "esbenp.prettier-vscode"
   ]
 }
