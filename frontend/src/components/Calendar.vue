@@ -1,6 +1,7 @@
 <template>
   <div>
     <v-sheet height="6vh" class="d-flex align-center">
+      <b-btn outlined small class="ma-4" @click="setToday">今日</b-btn>
       <v-btn icon>
         <v-icon @click="$refs.calendar.prev()">mdi-chevron-left</v-icon>
       </v-btn>
@@ -31,6 +32,9 @@ export default {
   },
   methods: {
     ...mapActions('events', ['fetchEvents']),
+    setToday() {
+      this.value = format(new Date(), 'yyyy/MM/dd');
+    },
   },
 };
 </script>
