@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-sheet height="100vh">
-      <v-calendar></v-calendar>
+      <v-calendar v-model="value" :events="events" @change="fetchEvents"></v-calendar>
     </v-sheet>
   </div>
 </template>
@@ -10,6 +10,9 @@
 import { mapGetters, mapActions } from 'vuex';
 export default {
   name: 'Calendar',
+  data: () => ({
+    value: new Date('2021/09/01'),
+  }),
   computed: {
     ...mapGetters('events', ['events']),
   },
