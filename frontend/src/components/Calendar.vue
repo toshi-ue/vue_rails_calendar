@@ -1,10 +1,16 @@
 <template>
   <div>
     <v-sheet height="6vh" class="d-flex align-center">
+      <v-btn icon>
+        <v-icon @click="$refs.calendar.prev()">mdi-chevron-left</v-icon>
+      </v-btn>
+      <v-btn icon>
+        <v-icon @click="$refs.calendar.next()">mdi-chevron-right</v-icon>
+      </v-btn>
       <v-toolbar-title>{{ title }}</v-toolbar-title>
     </v-sheet>
     <v-sheet height="94vh">
-      <v-calendar v-model="value" :events="events" @change="fetchEvents"></v-calendar>
+      <v-calendar ref="calendar" v-model="value" :events="events" @change="fetchEvents"></v-calendar>
     </v-sheet>
   </div>
 </template>
@@ -15,12 +21,12 @@ import { mapGetters, mapActions } from 'vuex';
 export default {
   name: 'Calendar',
   data: () => ({
-    value: new Date('2021/09/01'),
+    value: format(new Date(), 'yyyy/MM/dd'),
   }),
   computed: {
     ...mapGetters('events', ['events']),
     title() {
-      return format(this.value, 'yyyy年 M月');
+      return format(new Date(this.value), 'yyyy年 M月');
     },
   },
   methods: {
