@@ -20,7 +20,7 @@ const getters = {
     state.event
       ? {
           ...state.event,
-          state: new Date(state.event.start),
+          start: new Date(state.event.start),
           end: new Date(state.event.end),
         }
       : null,
