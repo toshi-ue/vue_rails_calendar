@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { format } from 'date-fns';
 
 const apiUrl = 'http://localhost:3000';
 
@@ -22,6 +23,9 @@ const getters = {
       ? {
           ...state.event,
           start: new Date(state.event.start),
+          end: new Date(state.event.end),
+          startDate: format(new Date(state.event.start), 'yyyy/MM/dd'),
+          endDate: format(new Date(state.event.end), 'yyyy/MM/dd'),
           end: new Date(state.event.end),
         }
       : null,
