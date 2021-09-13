@@ -1,16 +1,19 @@
+<!--
+該当リンク
+[日付選択フォームを追加する|【Rails × Vue.js】 Googleカレンダー風カレンダーアプリを作ってみよう|Techpit](https://www.techpit.jp/courses/173/curriculums/176/sections/1186/parts/4653)
+-->
+
 ## 学習すること
 
 - 登録フォームからデータを DB に登録する
 - 登録フォームのパーツを変更する
 
-commit 一覧のリンク
-[commit 一覧](https://github.com/toshi-ue/vue_rails_calendar/pull/7/commits "Feature/add function create schedule by toshi-ue · Pull Request #7 · toshi-ue/vue_rails_calendar")
+[commit 一覧]()
 
-## 学習することの項目
+## 学習履歴
 
 <!--
-該当箇所
-[日付選択フォームを追加する|【Rails × Vue.js】 Googleカレンダー風カレンダーアプリを作ってみよう|Techpit](https://www.techpit.jp/courses/173/curriculums/176/sections/1186/parts/4653)
+|| <br> | <br> | <br> |<br>|
 -->
 
 | 当日 | 翌日 | 3 日後 | 7 日後 | 内容・項目・リンク |
@@ -18,18 +21,7 @@ commit 一覧のリンク
 |      | <br> |  <br>  |  <br>  | <br>               |
 
 <!--
-次の学習内容
-リンク[日付選択フォームを追加する|【Rails × Vue.js】 Googleカレンダー風カレンダーアプリを作ってみよう|Techpit](https://www.techpit.jp/courses/173/curriculums/176/sections/1186/parts/4653)
-
-未学習の項目
-クリックした日付をデフォルトの値にする
-終了日の日付選択フォームの追加
-
-
 テンプレート
-
-|| <br> | <br> | <br> |<br>|
-
 
 例1
 || <br>日付 | <br>日付 | <br>日付 |コミットメッセージ<br>該当コミットのリンク|
