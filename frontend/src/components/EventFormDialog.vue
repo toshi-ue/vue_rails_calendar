@@ -6,7 +6,7 @@
       </v-btn>
     </v-card-actions>
     <v-card-text>
-      <DialogSection icon="mdi-square" :color="event.color || 'blue'">
+      <DialogSection icon="mdi-square" :color="event.color">
         <v-text-field v-model="name" label="タイトル"></v-text-field>
       </DialogSection>
       <DialogSection icon="mdi-clock-outline">
@@ -24,7 +24,6 @@
 import { mapGetters, mapActions } from 'vuex';
 import DialogSection from './DialogSection';
 import DateForm from './DateForm';
-import { format } from 'date-fns';
 
 export default {
   name: 'EventFormDialog',
@@ -41,8 +40,8 @@ export default {
     ...mapGetters('events', ['event']),
   },
   created() {
-    this.startDate = format(this.event.start, 'yyyy/MM/dd');
-    this.endDate = format(this.event.end, 'yyyy/MM/dd');
+    this.startDate = this.event.startDate;
+    this.endDate = this.event.endDate;
   },
   methods: {
     ...mapActions('events', ['setEvent', 'setEditMode', 'createEvent']),
