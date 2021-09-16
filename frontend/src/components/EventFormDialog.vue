@@ -47,7 +47,7 @@ export default {
   },
   data: () => ({
     color: '',
-    description: this.description,
+    description: '',
     endDate: null,
     endTime: null,
     name: '',
