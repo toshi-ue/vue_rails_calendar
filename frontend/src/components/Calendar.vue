@@ -33,6 +33,7 @@
 
 <script>
 import { format } from 'date-fns';
+import { getDefaultStartAndEnd } from '../functions/datetime';
 import { mapGetters, mapActions } from 'vuex';
 import EventDetailDialog from './EventDetailDialog';
 import EventFormDialog from './EventFormDialog';
@@ -68,8 +69,9 @@ export default {
     },
     initEvent({ date }) {
       date = date.replace(/-/g, '/');
-      const start = format(new Date(date), 'yyyy/MM/dd 00:00:00');
-      const end = format(new Date(date), 'yyyy/MM/dd 00:00:00');
+      // const start = format(new Date(date), 'yyyy/MM/dd 00:00:00');
+      // const end = format(new Date(date), 'yyyy/MM/dd 00:00:00');
+      const [start, end] = getDefaultStartAndEnd(date);
       this.setEvent({ name: '', start, end, timed: true });
       this.setEditMode(true);
     },
