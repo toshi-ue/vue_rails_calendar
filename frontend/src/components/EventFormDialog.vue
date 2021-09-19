@@ -37,6 +37,7 @@
 import { mapGetters, mapActions } from 'vuex';
 import { validationMixin } from 'vuelidate';
 import { required } from 'vuelidate/lib/validators';
+import { isGreaterEndThanStart } from '../functions/datetime';
 
 import CheckBox from './CheckBox';
 import ColorForm from './ColorForm';
@@ -74,7 +75,10 @@ export default {
   computed: {
     ...mapGetters('events', ['event']),
     isInvalid() {
-      return this.$v.$invalid;
+      return this.$v.$invalid || this.isInvalidDatetime;
+    },
+    isInvalidDatetime() {
+      return !isGreaterEndThanStart(this.startDate, this.startTime, this.endDate, this.endDate, this.endTime, this.allDay);
     },
   },
   created() {
