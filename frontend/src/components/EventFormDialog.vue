@@ -87,10 +87,12 @@ export default {
   created() {
     this.allDay = this.event.allDay;
     this.color = this.event.color;
-    this.startDate = this.event.startDate;
-    this.startTime = this.event.startTime;
+    this.description = this.event.description;
     this.endDate = this.event.endDate;
     this.endTime = this.event.endTime;
+    this.name = this.event.name;
+    this.startDate = this.event.startDate;
+    this.startTime = this.event.startTime;
   },
   methods: {
     ...mapActions('events', ['setEvent', 'setEditMode', 'createEvent']),
