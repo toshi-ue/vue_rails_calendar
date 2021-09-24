@@ -50,7 +50,7 @@ export default {
       this.deleteEvent(this.event.id);
     },
     edit() {
-      this.setEditMode();
+      this.setEditMode(true);
     },
   },
 };
