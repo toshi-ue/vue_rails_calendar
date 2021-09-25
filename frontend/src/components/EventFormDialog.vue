@@ -31,6 +31,7 @@
       </DialogSection>
     </v-card-text>
     <v-card-actions class="d-flex justify-end">
+      <v-btn @click="cancel">キャンセル</v-btn>
       <v-btn :disabled="isInvalid" @click="submit">保存</v-btn>
     </v-card-actions>
   </v-card>
@@ -96,6 +97,12 @@ export default {
   },
   methods: {
     ...mapActions('events', ['setEvent', 'setEditMode', 'createEvent', 'updateEvent']),
+    cancel() {
+      this.setEditMode(false);
+      if (!this.event.id) {
+        this.setEvent(null);
+      }
+    },
     closeDialog() {
       this.setEditMode(false);
       this.setEvent(null);
