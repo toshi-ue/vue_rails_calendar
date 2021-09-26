@@ -41,14 +41,14 @@
 import { mapGetters, mapActions } from 'vuex';
 import { validationMixin } from 'vuelidate';
 import { required } from 'vuelidate/lib/validators';
-import { isGreaterEndThanStart } from '../functions/datetime';
+import { isGreaterEndThanStart } from '../../functions/datetime';
 
-import CheckBox from './CheckBox';
-import ColorForm from './ColorForm';
-import DialogSection from './DialogSection';
-import DateForm from './DateForm';
-import TimeForm from './TimeForm';
-import TextForm from './TextForm';
+import CheckBox from '../forms/CheckBox';
+import ColorForm from '../forms/ColorForm';
+import DialogSection from '../layouts/DialogSection';
+import DateForm from '../forms/DateForm';
+import TimeForm from '../forms/TimeForm';
+import TextForm from '../forms/TextForm';
 
 export default {
   name: 'EventFormDialog',
