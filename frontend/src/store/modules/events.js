@@ -17,11 +17,12 @@ const getters = {
 
 const mutations = {
   appendEvent: (state, event) => (state.events = [...state.events, event]),
-  setEditMode: (state, bool) => (state.isEditMode = bool),
   removeEvent: (state, event) => (state.events = state.events.filter((e) => e.id !== event.id)),
   resetEvent: (state) => (state.event = null),
+  setEditMode: (state, bool) => (state.isEditMode = bool),
   setEvent: (state, event) => (state.event = event),
   setEvents: (state, events) => (state.events = events),
+  updateEvent: (state, event) => (state.events = state.events.map((e) => (e.id === event.id ? event : e))),
 };
 
 const actions = {
@@ -37,6 +38,10 @@ const actions = {
   async fetchEvents({ commit }) {
     const response = await axios.get(`${apiUrl}/events`);
     commit('setEvents', response.data);
+  },
+  async updateEvent({ commit }, event) {
+    const response = await axios.put(`${apiUrl}/events/${event.id}`, event);
+    commit('updateEvent', response.data);
   },
   setEvent({ commit }, event) {
     commit('setEvent', event);
