@@ -1,16 +1,17 @@
 class EventsController < ApplicationController
   def index
-    render json: Event.all
+    render json: Event.all.to_json(include: :calendar)
+    # render json: Event.all.includes(:calendar).to_json
   end
 
   def show
-    render json: Event.find(params[:id])
+    render json: Event.find(params[:id]).to_json(include: :calendar)
   end
 
   def create
     event = Event.new(event_params)
     if event.save
-      render json: event
+      render json: event.to_json(include: :calendar)
     else
       render json: event.errors, status: 422
     end
@@ -19,7 +20,7 @@ class EventsController < ApplicationController
   def update
     event = Event.find(params[:id])
     if event.update(event_params)
-      render json: event
+      render json: event.to_json(include: :calendar)
     else
       render json: event.errors, status: 422
     end
@@ -34,6 +35,6 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:id, :name, :start, :end, :timed, :description, :color)
+    params.require(:event).permit(:id, :name, :start, :end, :timed, :description, :color, :calendar_id)
   end
 end
