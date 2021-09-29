@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { serializeCalendar } from '../../functions/selializers';
 
 const apiUrl = 'http://localhost:3000';
 
@@ -7,7 +8,7 @@ const state = {
 };
 
 const getters = {
-  calendars: (state) => state.calendars,
+  calendars: (state) => state.calendars.map((calendar) => serializeCalendar(calendar)),
 };
 
 const mutations = {
