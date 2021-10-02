@@ -26,6 +26,9 @@
       <DialogSection icon="mdi-card-text-outline">
         <TextForm v-model="description" />
       </DialogSection>
+      <DialogSection icon="mdi-calendar">
+        <CalendarSelectForm :value="calendar" @input="changeCalendar($event)" />
+      </DialogSection>
       <DialogSection icon="mdi-palette">
         <ColorForm v-model="color" />
       </DialogSection>
@@ -43,6 +46,7 @@ import { validationMixin } from 'vuelidate';
 import { required } from 'vuelidate/lib/validators';
 import { isGreaterEndThanStart } from '../../functions/datetime';
 
+import CalendarSelectForm from '../forms/CalendarSelectForm';
 import CheckBox from '../forms/CheckBox';
 import ColorForm from '../forms/ColorForm';
 import DialogSection from '../layouts/DialogSection';
@@ -54,6 +58,7 @@ export default {
   name: 'EventFormDialog',
   mixins: [validationMixin],
   components: {
+    CalendarSelectForm,
     CheckBox,
     ColorForm,
     DialogSection,
@@ -63,6 +68,7 @@ export default {
   },
   data: () => ({
     allDay: false,
+    calendar: null,
     color: '',
     description: '',
     endDate: null,
@@ -72,6 +78,7 @@ export default {
     startTime: null,
   }),
   validations: {
+    calendar: { required },
     name: { required },
     startDate: { required },
     endDate: { required },
@@ -87,6 +94,7 @@ export default {
   },
   created() {
     this.allDay = this.event.allDay;
+    this.calendar = this.event.calendar;
     this.color = this.event.color;
     this.description = this.event.description;
     this.endDate = this.event.endDate;
@@ -103,6 +111,10 @@ export default {
         this.setEvent(null);
       }
     },
+    changeCalendar(calendar) {
+      this.color = calendar.color;
+      this.calendar = calendar;
+    },
     closeDialog() {
       this.setEditMode(false);
       this.setEvent(null);
@@ -113,6 +125,7 @@ export default {
       }
       const params = {
         ...this.event,
+        calendar_id: this.calendar.id,
         color: this.color,
         description: this.description,
         end: `${this.endDate} ${this.endTime || ''}`,
