@@ -15,7 +15,7 @@ const getters = {
 
 const mutations = {
   appendCalendar: (state, calendar) => (state.calendars = [...state.calendars, calendar]),
-  setCalendar: (state, calendar) => (state.calendars = calendar),
+  setCalendar: (state, calendar) => (state.calendar = calendar),
   setCalendars: (state, calendars) => (state.calendars = calendars),
 };
 
