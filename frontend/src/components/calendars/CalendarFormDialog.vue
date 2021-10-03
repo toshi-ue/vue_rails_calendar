@@ -24,31 +24,32 @@ import DialogSection from '../layouts/DialogSection';
 
 export default {
   name: 'CalendarFormDialog',
+  mixins: [validationMixin],
   components: {
     ColorForm,
     DialogSection,
   },
-  data:()=>{
+  data: () => ({
     name: '',
     color: null,
+  }),
+  validations: {
+    name: { required },
   },
-  validations:{
-    name: {required},
-  },
-  created(){
+  created() {
     this.color = this.calendar.color;
     this.name = this.calendar.name;
-  }
+  },
   computed: {
     ...mapGetters('calendars', ['calendar']),
   },
   methods: {
     ...mapActions('calendars', ['createCalendar', 'setCalendar', '']),
-    close(){
+    close() {
       this.setCalendar(null);
     },
-    submit(){
-      if(this.$v.$invalid){
+    submit() {
+      if (this.$v.$invalid) {
         return;
       }
       const params = {
@@ -58,7 +59,7 @@ export default {
       };
       this.createCalendar(params);
       this.close();
-    }
+    },
   },
 };
 </script>
